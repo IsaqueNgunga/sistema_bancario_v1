@@ -1,10 +1,10 @@
 menu = """
 ================= MENU =================
 
-[1] Extrato
-[2] Depositar
-[3] Sacar
-[0] Sair
+               [1] Extrato
+               [2] Depositar
+               [3] Sacar
+               [0] Sair
 
 ========================================
 => """
