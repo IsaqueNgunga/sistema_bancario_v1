@@ -56,10 +56,11 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
 
 
 def main():
- saldo = 0
- extrato = ""
  SAQUES_DIARIOS = 3
  LIMIT_SAQUE = 500
+
+ saldo = 0
+ extrato = ""
  numero_saques = 0
  
  while True:
