@@ -1,9 +1,3 @@
-
-def mensagem():
-    banco = "DS BANK"
-    mensagem = f"\n Seja bem vindo a {banco}! \n"
-    return mensagem
-
 def menu():
     menu = """
  ================= MENU =================
