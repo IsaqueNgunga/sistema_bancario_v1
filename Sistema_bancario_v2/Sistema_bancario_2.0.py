@@ -11,6 +11,7 @@ def menu():
                [1] Extrato
                [2] Depositar
                [3] Sacar
+               [4] Cadastro
                [0] Sair
 
  ========================================
@@ -52,7 +53,23 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
    elif valor > saldo:
             print("Saldo insuficiente.")
     
-   return saldo, extrato
+   return saldo, extrato, numero_saques
+
+def cadastro():
+     usuario = []
+     nome = input("\n Informe seu nome completo:")
+     d_nacimento = input("\n Informe sua data de nacimento:")
+     cpf = input("\n Informe seu cpf:")
+     endereco = input("\n Informe seu endereço:")
+     
+     add_nome = usuario.append(nome)
+     add_nacimento = usuario.append(d_nacimento)
+     add_cpf = usuario.append(cpf)
+     add_endereco = usuario.append(endereco)
+
+     print(f"\n Seja bem vindo a DS Banck {nome}!\n\n Abaixo dados cadastrais\n\n {usuario}")
+
+     return nome, d_nacimento, cpf, endereco
 
 
 def main():
@@ -62,6 +79,7 @@ def main():
  saldo = 0
  extrato = ""
  numero_saques = 0
+ usuarios = {}
  
  while True:
   opcao = menu()
@@ -76,7 +94,7 @@ def main():
   elif opcao == "3":
       valor = float(input("Informe o valor do saque: "))
       
-      saldo, extrato = withdraw(
+      saldo, extrato, numero_saques = withdraw(
            saldo=saldo,
            valor=valor,
            extrato=extrato,
@@ -84,6 +102,9 @@ def main():
            LIMIT_SAQUE=LIMIT_SAQUE,
            numero_saques=numero_saques,
            )
+  
+  elif opcao == "4":
+      usuarios = cadastro()
 
 
   elif opcao == "0":
