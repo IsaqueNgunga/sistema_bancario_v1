@@ -6,6 +6,8 @@ def menu():
                [2] Depositar
                [3] Sacar
                [4] Cadastro
+               [5] Conta
+               [6] Listar contatos
                [0] Sair
 
  ========================================
@@ -49,7 +51,7 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
     
    return saldo, extrato, numero_saques
 
-def cadastro():
+def cadastro(usuarios):
      usuario = []
      nome = input("\n Informe seu nome completo:")
      d_nacimento = input("\n Informe sua data de nacimento:")
@@ -65,15 +67,16 @@ def cadastro():
 
      return nome, d_nacimento, cpf, endereco
 
-
 def main():
  SAQUES_DIARIOS = 3
  LIMIT_SAQUE = 500
+ AGENCIA = "0001"
 
  saldo = 0
  extrato = ""
  numero_saques = 0
  usuarios = {}
+ contas = []
  
  while True:
   opcao = menu()
@@ -98,8 +101,7 @@ def main():
            )
   
   elif opcao == "4":
-      usuarios = cadastro()
-
+      usuarios = cadastro(usuarios)
 
   elif opcao == "0":
      break
