@@ -22,6 +22,8 @@ def extract(saldo, /, *, extrato):
 
 def deposit(saldo,valor,extrato,/):
    
+   print("--------------------------------------------------")
+
    if valor > 0:
       saldo += valor
       extrato += f"\n Deposito: R$ {valor: .2f}\n"
@@ -30,11 +32,15 @@ def deposit(saldo,valor,extrato,/):
    else:
         print("\n Opção indisponível. \n\n Favor digitar um valor númerico positivo. \n\n Você será redirecionado ao menu principal. \n")
 
+   print("--------------------------------------------------")
+
    return saldo, extrato
 
 def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques):
    saque_indisponivel = numero_saques >= SAQUES_DIARIOS
    limit_exedido = valor > LIMIT_SAQUE
+
+   print("--------------------------------------------------")
    
    if limit_exedido:
             print("\n Limite exedido! \n\n Saque R$500,00 ou menos. \n\n Você será redirecionado ao menu principal.")
@@ -54,22 +60,37 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
 
    elif valor > saldo:
             print("\n Saldo insuficiente. \n\n Você será redirecionado ao menu principal.")
+
+   print("--------------------------------------------------")
     
    return saldo, extrato, numero_saques
 
-def cadastro(usuarios):
+def register(usuarios):
      usuario = []
+     
+     print("--------------------------------------------------")
+     
      nome = input("\n Informe seu nome completo:")
+     
      d_nacimento = input("\n\n Informe sua data de nacimento:")
-     cpf = input("\n\n Informe seu cpf:")
-     endereco = input("\n\n Informe seu endereço:")
+     
+     cpf = str(input("\n\n Informe seu cpf:"))
+     
+     endereco = (input("\n\n Logradouro:"), input("\n\n Numero:"), input("\n\n Bairro:"), input("\n\n Cidade/Estado:"))
      
      add_nome = usuario.append({"Nome": nome})
+     
      add_nacimento = usuario.append({"Data de Nacimento": d_nacimento})
+     
      add_cpf = usuario.append({"CPF": cpf})
+     
      add_endereco = usuario.append({"Endereço": endereco})
 
+     print("--------------------------------------------------")
+     
      print(f"\n Seja bem vindo a DS Banck {nome}!\n\n Abaixo dados cadastrais\n\n {usuario}")
+     
+     print("--------------------------------------------------")
 
      return nome, d_nacimento, cpf, endereco
 
@@ -107,7 +128,7 @@ def main():
            )
   
   elif opcao == "4":
-      usuarios = cadastro(usuarios)
+      usuarios = register(usuarios)
 
   elif opcao == "0":
      break
