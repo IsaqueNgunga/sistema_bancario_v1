@@ -30,7 +30,7 @@ def deposit(saldo,valor,extrato,/):
       print("\n Depositgo relaizado! \n\n Você será redirecionado ao menu principal.\n")
       
    else:
-        print("\n Opção indisponível. \n\n Favor digitar um valor númerico positivo. \n\n Você será redirecionado ao menu principal. \n")
+        print("\n Opção indisponível. \n\n Favor digitar um valor positivo. \n\n Você será redirecionado ao menu principal. \n")
 
    print("--------------------------------------------------")
 
@@ -46,7 +46,7 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
             print("\n Limite exedido! \n\n Saque R$500,00 ou menos. \n\n Você será redirecionado ao menu principal.")
 
    elif valor < 0:
-            print("\n Operação inválida! \n\n igite um valor positivo. \n\n Você será redirecionado ao menu principal.")
+            print("\n Operação inválida! \n\n Digite um valor positivo. \n\n Você será redirecionado ao menu principal.")
 
    elif saque_indisponivel:
             print("\n Saques diários esgotados! \n\n Aguarde 24h para realizar uma nova transação. \n\n Você será redirecionado ao menu principal.")
