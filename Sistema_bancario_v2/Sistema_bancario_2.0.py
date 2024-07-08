@@ -65,26 +65,24 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
     
    return saldo, extrato, numero_saques
 
-def register(usuarios):
-     usuario = []
+def register(usuario):
      
      print("--------------------------------------------------")
      
+     cpf = str(input("\n\n Informe seu cpf:"))
+     # verify = search(cpf, usuario)
+
+     # if verify:
+     #      print("\n@@@ Já existe usuário com esse CPF! @@@")
+     #      return
+
      nome = input("\n Informe seu nome completo:")
      
      d_nacimento = input("\n\n Informe sua data de nacimento:")
      
-     cpf = str(input("\n\n Informe seu cpf:"))
-     
      endereco = (input("\n\n Logradouro:"), input("\n\n Numero:"), input("\n\n Bairro:"), input("\n\n Cidade/Estado:"))
-     
-     add_nome = usuario.append({"Nome": nome})
-     
-     add_nacimento = usuario.append({"Data de Nacimento": d_nacimento})
-     
-     add_cpf = usuario.append({"CPF": cpf})
-     
-     add_endereco = usuario.append({"Endereço": endereco})
+
+     usuario.append({"Nome": nome, "Data de Nacimento": d_nacimento, "CPF": cpf, "Endereço": endereco})
 
      print("--------------------------------------------------")
      
@@ -94,6 +92,10 @@ def register(usuarios):
 
      return nome, d_nacimento, cpf, endereco
 
+# def search(cpf, usuario):
+#      verification = [verify for verify in usuario if verify["cpf"] == cpf]
+#      return verification[0] if verification else None
+
 def main():
  SAQUES_DIARIOS = 3
  LIMIT_SAQUE = 500
@@ -102,7 +104,7 @@ def main():
  saldo = 0
  extrato = ""
  numero_saques = 0
- usuarios = {}
+ usuario = []
  contas = []
  
  while True:
@@ -128,7 +130,7 @@ def main():
            )
   
   elif opcao == "4":
-      usuarios = register(usuarios)
+     register(usuario)
 
   elif opcao == "0":
      break
