@@ -67,16 +67,16 @@ def withdraw(*,saldo, valor, extrato, SAQUES_DIARIOS, LIMIT_SAQUE, numero_saques
 
 def register(usuario):
      
-     print("--------------------------------------------------")
+     cpf = str(input("\n Informe seu cpf:"))
      
-     cpf = str(input("\n\n Informe seu cpf:"))
-     # verify = search(cpf, usuario)
+     verify = search_cpf(cpf, usuario)
 
-     # if verify:
-     #      print("\n@@@ Já existe usuário com esse CPF! @@@")
-     #      return
+     if verify:
+          print("\n\n O CPF informado pertence a um usuário. Digite um CPF válido. \n\n Você será redirecionado ao menu principal \n ")
+          print("--------------------------------------------------")
+          return
 
-     nome = input("\n Informe seu nome completo:")
+     nome = input("\n\n Informe seu nome completo:")
      
      d_nacimento = input("\n\n Informe sua data de nacimento:")
      
@@ -84,17 +84,17 @@ def register(usuario):
 
      usuario.append({"Nome": nome, "Data de Nacimento": d_nacimento, "CPF": cpf, "Endereço": endereco})
 
-     print("--------------------------------------------------")
+     print("\n--------------------------------------------------")
      
-     print(f"\n Seja bem vindo a DS Banck {nome}!\n\n Abaixo dados cadastrais\n\n {usuario}")
+     print(f"\n Seja bem vindo a DS Banck {nome}!\n\n Abaixo dados cadastrais\n\n {usuario} \n\n Você será redirecionado ao menu principal \n")
      
      print("--------------------------------------------------")
 
      return nome, d_nacimento, cpf, endereco
 
-# def search(cpf, usuario):
-#      verification = [verify for verify in usuario if verify["cpf"] == cpf]
-#      return verification[0] if verification else None
+def search_cpf(cpf, usuario):
+     verification = [verify for verify in usuario if verify["CPF"] == cpf]
+     return verification[0] if verification else None
 
 def main():
  SAQUES_DIARIOS = 3
