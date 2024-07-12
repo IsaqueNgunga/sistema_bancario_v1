@@ -96,6 +96,19 @@ def search_cpf(cpf, usuario):
      verification = [verify for verify in usuario if verify["CPF"] == cpf]
      return verification[0] if verification else None
 
+def account(usuario, AGENCIA, n_account):
+     
+     cpf = input("Informe o CPF do usuário: ")
+     verify = search_cpf(cpf, usuario)
+
+     if verify:
+        print("\n=== Conta criada com sucesso! ===")
+        return {"agencia": AGENCIA, "numero_conta": n_account, "usuario": usuario}
+
+     print("\n@@@ Usuário não encontrado, fluxo de criação de conta encerrado! @@@")
+          
+
+
 def main():
  SAQUES_DIARIOS = 3
  LIMIT_SAQUE = 500
@@ -106,6 +119,7 @@ def main():
  numero_saques = 0
  usuario = []
  contas = []
+ n_account = 0
  
  while True:
   opcao = menu()
@@ -131,6 +145,13 @@ def main():
   
   elif opcao == "4":
      register(usuario)
+
+  elif opcao == "5":
+            n_account = len(contas) + 1
+            conta = account(usuario, AGENCIA, n_account)
+
+            if conta:
+                contas.append(conta)
 
   elif opcao == "0":
      break
