@@ -7,7 +7,6 @@ def menu():
                [3] Sacar
                [4] Cadastro
                [5] Conta
-               [6] Listar contatos
                [0] Sair
 
  ========================================
